@@ -1,4 +1,4 @@
-See race results for your favorite car and motorcycle championships.
+See current season race results for your favorite car and motorcycle championships.
 
 Formula 1
 WTCC
