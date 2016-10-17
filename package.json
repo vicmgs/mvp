@@ -1,0 +1,16 @@
+{
+  "name": "RaceResults",
+  "version": "1.0.0",
+  "description": "Get race results of your favorite car and motorcycle championships",
+  "author": "Victor Mu <vic.mgs@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.4.3",
+    "express": "^4.4.5",
+    "request": "^2.36.0"
+  }
+}
