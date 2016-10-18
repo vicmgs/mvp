@@ -6,12 +6,9 @@ CREATE TABLE users (
   id INTEGER(4) NOT NULL AUTO_INCREMENT,
   username VARCHAR(50),
   password VARCHAR(50),
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  UNIQUE KEY id_unique1 (username)
 );
 
-INSERT INTO users (username, password) VALUES
-('Jasmine', 'Australia'),
-('Jay', 'India'),
-('Jim', 'Germany'),
-('Lesley', 'Scotland');
--- mysql -u root < server/schema.sql
+
+-- mysql -u root < db/schema.sql
