@@ -176,6 +176,56 @@ app.get('/wsbk', function (req, res) {
   }
 });
 
+app.get('/f1news', function (req, res) {
+
+  request('https://www.google.com/search?q=f1+news&tbm=nws', function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var $ = cheerio.load(body);
+      res.status(200).send(body);
+    }
+  });
+});
+
+app.get('/wtccnews', function (req, res) {
+
+  request('https://www.google.com/search?q=wtcc+news&tbm=nws', function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var $ = cheerio.load(body);
+      res.status(200).send(body);
+    }
+  });
+});
+
+app.get('/wrcnews', function (req, res) {
+
+  request('https://www.google.com/search?q=wrc+news&tbm=nws', function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var $ = cheerio.load(body);
+      res.status(200).send(body);
+    }
+  });
+});
+
+app.get('/motogpnews', function (req, res) {
+
+  request('https://www.google.com/search?q=motogp+news&tbm=nws', function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var $ = cheerio.load(body);
+      res.status(200).send(body);
+    }
+  });
+});
+
+app.get('/wsbknews', function (req, res) {
+
+  request('https://www.google.com/search?q=wsbk+news&tbm=nws', function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var $ = cheerio.load(body);
+      res.status(200).send(body);
+    }
+  });
+});
+
 app.listen(3000, function () {
   console.log('Listening on port 3000!');
 });
