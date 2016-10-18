@@ -74,4 +74,34 @@ $(document).ready(function(){
          },
          type: 'GET'
        });
+
+       $.ajax({
+          url: '/dtmnews',
+          error: function(err) {
+             console.log('error: ', err);
+          },
+          success: function(data) {
+            var tempDom = $('<div></div>').append($.parseHTML(data));
+            tempDom.find('.g').find('.st').nextAll().remove();
+            for (var i = 0; i < 4; i++) {
+              $('.dtmnews').append(tempDom.find('.g')[i]);
+            }
+          },
+          type: 'GET'
+        });
+
+        $.ajax({
+           url: '/supergtnews',
+           error: function(err) {
+              console.log('error: ', err);
+           },
+           success: function(data) {
+             var tempDom = $('<div></div>').append($.parseHTML(data));
+             tempDom.find('.g').find('.st').nextAll().remove();
+             for (var i = 0; i < 4; i++) {
+               $('.supergtnews').append(tempDom.find('.g')[i]);
+             }
+           },
+           type: 'GET'
+         });
 });

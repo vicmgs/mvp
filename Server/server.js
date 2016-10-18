@@ -60,6 +60,8 @@ app.post('/login', function(req, res){
         if (data[0].password === req.body.password) {
           req.session.user = req.body.username;
           res.redirect('/');
+        } else {
+          res.redirect('/login');
         }
       }
     }
@@ -175,6 +177,43 @@ app.get('/wsbk', function (req, res) {
   }
 });
 
+app.get('/dtm', function (req, res) {
+  if (!req.session.user) {
+    res.redirect('/login');
+  } else {
+    request('https://www.driverdb.com/championships/standings/dtm/2016/', function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        var $ = cheerio.load(body);
+
+        $('#points a').each(function(){
+           $(this).replaceWith($(this).text())
+        });
+        $('table').before('<h1>DTM 2016 Driver Standings</h1>');
+        var table = $('#points').html();
+        res.status(200).send(table);
+      }
+    });
+  }
+});
+
+app.get('/supergt', function (req, res) {
+  if (!req.session.user) {
+    res.redirect('/login');
+  } else {
+    request('https://www.driverdb.com/championships/standings/super-gt-japan-gt300/2016/', function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        var $ = cheerio.load(body);
+        $('#points a').each(function(){
+           $(this).replaceWith($(this).text())
+        });
+        $('table').before('<h1>Super GT300 2016 Driver Standings</h1>');
+        var table = $('#points').html();
+        res.status(200).send(table);
+      }
+    });
+  }
+});
+
 app.get('/f1news', function (req, res) {
 
   request('https://www.google.com/search?q=f1+news&tbm=nws', function (error, response, body) {
@@ -218,6 +257,26 @@ app.get('/motogpnews', function (req, res) {
 app.get('/wsbknews', function (req, res) {
 
   request('https://www.google.com/search?q=wsbk+news&tbm=nws', function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var $ = cheerio.load(body);
+      res.status(200).send(body);
+    }
+  });
+});
+
+app.get('/dtmnews', function (req, res) {
+
+  request('https://www.google.com/search?q=dtm+news&tbm=nws', function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var $ = cheerio.load(body);
+      res.status(200).send(body);
+    }
+  });
+});
+
+app.get('/supergtnews', function (req, res) {
+
+  request('https://www.google.com/search?q=supergt+news&tbm=nws', function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(body);
       res.status(200).send(body);
