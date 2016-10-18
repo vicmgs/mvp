@@ -39,6 +39,11 @@ app.get('/', function(req, res){
   }
 });
 
+app.get('/logout', function(req, res){
+  req.session.destroy();
+  res.redirect('/login');
+});
+
 app.get('/login', function(req, res){
   res.sendFile('/Users/VictorMu/Desktop/2016-09-mvp/Client/login.html');
 });
