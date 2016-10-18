@@ -1,0 +1,35 @@
+body {
+  font-family: 'Helvetica';
+}
+
+h1 {
+  font-family: 'Georgia';
+}
+
+a:link {
+    color: blue;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: blue;
+    text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: blue;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+
+.Main {
+    width: 800px;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: #f7f7f7;
+}
