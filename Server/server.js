@@ -25,7 +25,6 @@ con.connect(function(err){
 
 app.use(bodyParser());
 app.use(express.static(__dirname + '/../client/public'));
-console.log(__dirname);
 
 app.use(session({
     secret: '1234-2345-3456789',
@@ -224,6 +223,11 @@ app.get('/wsbknews', function (req, res) {
       res.status(200).send(body);
     }
   });
+});
+
+app.get('/*', function (req, res) {
+  var string = req.originalUrl;
+  res.redirect('http://google.com'+ req.originalUrl);
 });
 
 app.listen(3000, function () {
