@@ -24,6 +24,8 @@ con.connect(function(err){
 });
 
 app.use(bodyParser());
+app.use(express.static(__dirname + '/../client/public'));
+console.log(__dirname);
 
 app.use(session({
     secret: '1234-2345-3456789',
