@@ -3,13 +3,45 @@ var app = express();
 var path = require('path');
 var request = require('request');
 var cheerio = require('cheerio');
+var bodyParser = require('body-parser');
+var mysql = require("mysql");
 
+// First you need to create a connection to the db
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "1107",
+  database: "racer"
+});
 
+con.connect(function(err){
+  if(err){
+    console.log('Error connecting to Db');
+    return;
+  }
+  console.log('Connection established');
+});
+
+app.use(bodyParser());
 app.use('/', express.static('./client'));
 
-app.get('/', function(req, res){
-  res.sendFile('client/index.html');
-})
+app.get('/login', function(req, res){
+  res.sendFile('/Users/VictorMu/Desktop/2016-09-mvp/Client/login.html');
+});
+
+app.post('/login', function(req, res){
+  console.log(req.body);
+  res.sendStatus(202);
+});
+
+app.post('/signup', function(req, res){
+  console.log(req.body);
+  res.sendStatus(202);
+});
+
+app.get('/signup', function(req, res){
+  res.sendFile('/Users/VictorMu/Desktop/2016-09-mvp/Client/signup.html');
+});
 
 app.get('/f1', function (req, res) {
   request('https://www.formula1.com/en/results.html/2016/drivers.html', function (error, response, body) {
