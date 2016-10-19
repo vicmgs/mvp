@@ -1,5 +1,7 @@
 body {
   font-family: 'Helvetica';
+  background-image: url(https://porschenewsroom.s3.amazonaws.com/porsche_newsroom/motorsport/vortest-le-mans-2016-lmp1/m16_1986_fine_bjpg/904ff95e-9ea2-4b55-b3cd-534c2ffb5a45_teaser_original_720x1_5.jpg);
+  background-attachment: fixed;
 }
 
 h1 {
@@ -30,6 +32,11 @@ a:active {
 .Main {
     width: 800px;
     margin: 0 auto;
-    padding: 50px;
+    padding: 1px 50px;
     background-color: #f7f7f7;
+}
+.middle {
+  padding-top: 50px;
+  text-align: center;
+  height: 88vh;
 }
