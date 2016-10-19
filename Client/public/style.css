@@ -9,24 +9,24 @@ h1 {
 }
 
 a:link {
-    color: blue;
+    color: #c4a300;
     text-decoration: none;
 }
 
 /* visited link */
 a:visited {
-    color: blue;
+    color: #c4a300;
     text-decoration: none;
 }
 
 /* mouse over link */
 a:hover {
-    color: blue;
+    color: #c4a300;
 }
 
 /* selected link */
 a:active {
-    color: blue;
+    color: #c4a300;
 }
 
 .Main {
